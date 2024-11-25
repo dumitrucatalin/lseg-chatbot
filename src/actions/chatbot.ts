@@ -46,6 +46,9 @@ export const getStockExchangeList = async (): Promise<string[]> => {
 // Server action to handle chatbot responses
 export const getChatbotResponse = async (input: string): Promise<{ response: string; options?: string[] }> => {
     try {
+        //create delay for testing purposes
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
         // Ensure hash maps are initialized
         await initializeChatbotData();
 

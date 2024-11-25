@@ -18,6 +18,8 @@ const LSEGChatbot = () => {
     const [userInput, setUserInput] = useState("");
     const [goBackInput, setGoBackInput] = useState("");
     const [exchanges, setExchanges] = useState<string[]>([]);
+    const [loading, setLoading] = useState(false);
+
     const chatContainerRef = useRef<HTMLDivElement>(null);
 
 
@@ -73,12 +75,15 @@ const LSEGChatbot = () => {
         let curedUserInput = userInput;
 
         setLastExchange(userInput);
+
         // Add user message
         addMessage("user", userInput);
 
         if (userInput.toLowerCase().includes("back")) {
             curedUserInput = goBackInput;
         }
+
+        setLoading(true); // Start loading spinner
 
         try {
             // Get server-side response
@@ -89,10 +94,13 @@ const LSEGChatbot = () => {
         } catch (error) {
             console.error("Error:", error);
             addMessage("bot", "Something went wrong. Please try again.");
+        } finally {
+            setLoading(false); // Stop loading spinner
         }
 
         setUserInput(""); // Clear input
     };
+
 
     const handleOptionSelect = async (option: string) => {
         // Add user selection to chat
@@ -103,6 +111,7 @@ const LSEGChatbot = () => {
         if (option.toLowerCase().includes("back")) {
             curedUserInput = goBackInput;
         }
+        setLoading(true); // Start loading spinner
 
         try {
             // Get server-side response
@@ -113,6 +122,8 @@ const LSEGChatbot = () => {
         } catch (error) {
             console.error("Error:", error);
             addMessage("bot", "Something went wrong. Please try again.");
+        } finally {
+            setLoading(false); // Stop loading spinner
         }
     };
 
@@ -166,8 +177,13 @@ const LSEGChatbot = () => {
                         )}
                     </div>
                 ))}
+                {/* Show Loading Spinner */}
+                {loading && (
+                    <div className="flex justify-center items-center p-2">
+                        <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                )}
             </div>
-
             {/* Sticky Input Bar */}
             <footer className="sticky bottom-0 bg-white w-full border-t border-gray-300 p-4 flex items-center space-x-4">
                 <input
