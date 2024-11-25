@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org)
+This is a [Next.js](https://nextjs.org) project.
+
+It is a chatbot designed to provide stock prices for selected stock exchanges.
 
 ## Getting Started
 
