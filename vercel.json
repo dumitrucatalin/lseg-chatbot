@@ -1,0 +1,9 @@
+{
+    "functions": {
+        "src/actions/chatbot.ts": {
+            "includeFiles": [
+                "chatbot-stock-data.json"
+            ]
+        }
+    }
+}
