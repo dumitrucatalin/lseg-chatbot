@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --lseg-blue: #071df4;
+  --lseg-light-blue: #f1f7fe;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -15,7 +17,7 @@
 } */
 
 .dark-mode {
-  --background: #0a0a0a;
+  --background: #3f3e3e;
   --foreground: #ededed;
 }
 

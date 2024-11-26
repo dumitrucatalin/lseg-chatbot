@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "lseg-blue": "var(--lseg-blue)", // Add your custom blue color
+        "lseg-light-blue": "var(--lseg-light-blue)", // Add your custom light blue color
       },
     },
   },
