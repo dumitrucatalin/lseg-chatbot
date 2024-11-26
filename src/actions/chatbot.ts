@@ -1,7 +1,7 @@
 "use server";
 import path from "path";
 import { promises as fs } from "fs";
-import { StockExchangeData, StockExchange, Stock } from "@/types/chatbot"; // Adjust the path to your type definitions
+import { StockExchangeData, StockExchange, Stock } from "@/types/chatbot";
 
 // In-memory hash maps for quick data retrieval
 let exchangeMap: Map<string, StockExchange> | null = null;
@@ -34,8 +34,6 @@ const initializeChatbotData = async (): Promise<void> => {
     }
 };
 
-
-// Server action to get the list of exchanges
 export const getStockExchangeList = async (): Promise<string[]> => {
     // Ensure hash maps are initialized
     await initializeChatbotData();
@@ -43,7 +41,6 @@ export const getStockExchangeList = async (): Promise<string[]> => {
     return Array.from(exchangeMap!.values()).map((exchange) => exchange.stockExchange);
 };
 
-// Server action to handle chatbot responses
 export const getChatbotResponse = async (input: string): Promise<{ response: string; options?: string[] }> => {
     try {
         //create delay for testing purposes

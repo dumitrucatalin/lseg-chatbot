@@ -8,7 +8,6 @@ const OptionsList = ({ options, text, onSelect }: OptionsListProps) => {
     return (
         <div className="p-2 bg-lseg-light-blue border rounded-md flex items-start space-x-4">
 
-            {/* Content Section */}
             <div className="flex-1">
                 <p className="mb-4 ">{text}</p>
                 <ul className="space-y-2 ">

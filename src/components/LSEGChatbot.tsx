@@ -162,7 +162,7 @@ const LSEGChatbot = () => {
                                             onSelect={handleOptionSelect}
                                         />
                                     ) : (
-                                        <div className="bg-lseg-blue text-white inline-block p-3 rounded-lg">
+                                        <div className="bg-lseg-light-blue inline-block p-3 rounded-lg">
                                             {message.text}
                                         </div>
                                     )}
