@@ -1,7 +1,0 @@
-{
-    "functions": {
-        "src/actions/chatbot.ts": {
-            "includeFiles": "src/data/chatbot-stock-data.json"
-        }
-    }
-}
