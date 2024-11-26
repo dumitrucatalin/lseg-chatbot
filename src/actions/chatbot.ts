@@ -11,7 +11,7 @@ let stockMap: Map<string, Stock> | null = null;
 const initializeChatbotData = async (): Promise<void> => {
     if (exchangeMap && stockMap) return; // Already initialized
 
-    const filePath = path.join(process.cwd(), "chatbot-stock-data.json");
+    const filePath = path.join(process.cwd(), "src/data/chatbot-stock-data.json");
 
     try {
         // Read and parse the JSON file
