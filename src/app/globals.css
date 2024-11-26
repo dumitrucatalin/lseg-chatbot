@@ -9,16 +9,12 @@
   --lseg-light-blue: #f1f7fe;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
-.dark-mode {
-  --background: #3f3e3e;
-  --foreground: #ededed;
+.dark {
+  --background: #191919;
+  --foreground: #232323;
+  --lseg-blue: #071df4;
+  --lseg-light-blue: #f1f7fec0;
 }
 
 body {

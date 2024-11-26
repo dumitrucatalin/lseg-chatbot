@@ -6,13 +6,14 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class", // Enable class-based dark mode
   theme: {
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        "lseg-blue": "var(--lseg-blue)", // Add your custom blue color
-        "lseg-light-blue": "var(--lseg-light-blue)", // Add your custom light blue color
+        "lseg-blue": "var(--lseg-blue)",
+        "lseg-light-blue": "var(--lseg-light-blue)",
       },
     },
   },

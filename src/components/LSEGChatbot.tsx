@@ -191,10 +191,10 @@ const LSEGChatbot = () => {
                     </div>
                 )}
             </div>
-            <footer className="sticky bottom-0 bg-white w-full border-t border-gray-300 p-4 flex items-center space-x-4">
-                <div className="relative flex-1">
+            <footer className="sticky bottom-0 bg-white dark:bg-[#232323] w-full border-t border-gray-300 p-4 flex items-center space-x-4">
+                <div className="relative flex-1 align-center">
                     {suggestion && (
-                        <div className="left-0 top-full mt-1 text-gray-500">
+                        <div className="left-0 top-full m-1 text-gray-500">
                             Autocomplete: {suggestion} {'(*Press Tab to select)'}
                         </div>
                     )}
@@ -210,7 +210,7 @@ const LSEGChatbot = () => {
                 </div>
                 <button
                     onClick={handleInputSubmit}
-                    className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
+                    className="py-2 px-4 bg-lseg-blue text-white rounded hover:bg-blue-600 disabled:opacity-50"
                     disabled={!userInput}
                 >
                     <FaPaperPlane />
