@@ -159,7 +159,7 @@ const LSEGChatbot = () => {
                         className={`mb-4 ${message.sender === "bot" ? "text-left flex flex-col" : "text-right"}`}
                     >
                         {message.sender === "bot" && (
-                            <div className="flex items-start space-x-4">
+                            <div className="flex items-end space-x-4">
                                 <div className="shrink-0">
                                     <Image src="/chatbot-icon-blue.svg" alt="Robot" width={40} height={40} />
                                 </div>
@@ -191,6 +191,7 @@ const LSEGChatbot = () => {
                     </div>
                 )}
             </div>
+
             <footer className="sticky bottom-0 bg-white dark:bg-[#232323] w-full border-t border-gray-300 p-4 flex items-center space-x-4">
                 <div className="relative flex-1 align-center">
                     {suggestion && (
