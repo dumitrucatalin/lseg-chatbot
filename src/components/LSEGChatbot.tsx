@@ -82,7 +82,7 @@ const LSEGChatbot = () => {
         }
     };
 
-    const handleInputSubmit = async () => {
+    const handleUserMessage = async (userInput: string) => {
         if (!userInput.trim()) return;
 
         let curedUserInput = userInput.trim();
@@ -112,23 +112,14 @@ const LSEGChatbot = () => {
         }
 
         setUserInput(""); // Clear input
+    }
+
+    const handleInputSubmit = async () => {
+        await handleUserMessage(userInput);
     };
 
     const handleOptionSelect = async (option: string) => {
-        addMessage("user", option);
-        setLastExchange(option); // Save the selected option for "Go Back"
-
-        setLoading(true);
-
-        try {
-            const { response, options } = await getChatbotResponse(option);
-            addMessage("bot", response, options);
-        } catch (error) {
-            console.error("Error:", error);
-            addMessage("bot", "Something went wrong. Please try again.");
-        } finally {
-            setLoading(false);
-        }
+        await handleUserMessage(option);
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

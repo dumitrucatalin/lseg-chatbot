@@ -75,7 +75,7 @@ export const getChatbotResponse = async (input: string): Promise<{ response: str
         if (stockMap!.has(query)) {
             const matchedStock = stockMap!.get(query)!; // Non-null assertion because we checked `has`
             return {
-                response: `The stock price of ${matchedStock.stockName} (${matchedStock.code}) is ${matchedStock.price}.`,
+                response: `The stock price of ${matchedStock.stockName} (${matchedStock.code}) is ${matchedStock.price.toLocaleString()}.`,
                 options: ["Main Menu", "Go Back"],
             };
         }
