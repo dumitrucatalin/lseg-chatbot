@@ -1,7 +1,6 @@
 "use server";
-import path from "path";
-import { promises as fs } from "fs";
 import { StockExchangeData, StockExchange, Stock } from "@/types/chatbot";
+import chatbotData from "../data/chatbot-stock-data.json";
 
 // In-memory hash maps for quick data retrieval
 let exchangeMap: Map<string, StockExchange> | null = null;
@@ -11,11 +10,10 @@ let stockMap: Map<string, Stock> | null = null;
 const initializeChatbotData = async (): Promise<void> => {
     if (exchangeMap && stockMap) return; // Already initialized
 
-    const filePath = path.resolve("src/data/chatbot-stock-data.json"); // Ensure the correct path
-
     try {
-        const fileContents = await fs.readFile(filePath, "utf-8");
-        const data: StockExchangeData = JSON.parse(fileContents);
+        // We can fetch it from another source, e.g., RestAPI or redis cache
+        // will use like this for simplicity
+        const data: StockExchangeData = chatbotData; // Use the imported JSON directly
 
         exchangeMap = new Map();
         stockMap = new Map();
