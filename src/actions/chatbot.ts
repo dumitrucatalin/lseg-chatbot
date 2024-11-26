@@ -11,21 +11,19 @@ let stockMap: Map<string, Stock> | null = null;
 const initializeChatbotData = async (): Promise<void> => {
     if (exchangeMap && stockMap) return; // Already initialized
 
-    const filePath = path.join(process.cwd(), "src", "data", "chatbot-stock-data.json");
+    const filePath = path.resolve("src/data/chatbot-stock-data.json"); // Ensure the correct path
 
     try {
-        // Read and parse the JSON file
         const fileContents = await fs.readFile(filePath, "utf-8");
         const data: StockExchangeData = JSON.parse(fileContents);
 
-        // Populate hash maps
         exchangeMap = new Map();
         stockMap = new Map();
 
         for (const exchange of data) {
-            exchangeMap.set(exchange.stockExchange.toLowerCase(), exchange); // Use lowercase keys for case-insensitive matching
+            exchangeMap.set(exchange.stockExchange.toLowerCase(), exchange);
             for (const stock of exchange.topStocks) {
-                stockMap.set(stock.stockName.toLowerCase(), stock); // Use lowercase keys for case-insensitive matching
+                stockMap.set(stock.stockName.toLowerCase(), stock);
             }
         }
     } catch (error) {
@@ -33,6 +31,7 @@ const initializeChatbotData = async (): Promise<void> => {
         throw new Error("Failed to initialize chatbot data");
     }
 };
+
 
 export const getStockExchangeList = async (): Promise<string[]> => {
     // Ensure hash maps are initialized
